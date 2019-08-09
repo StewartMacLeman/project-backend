@@ -8,11 +8,21 @@ import java.util.ArrayList;
 @Table(name="accommodations")
 public class Accommodation extends Location {
 
-    public Accommodation(String name, int rating, String description, ArrayList<Double> coordinates) {
+    private AccommodationType type;
+
+    public Accommodation(String name, int rating, String description, ArrayList<Double> coordinates, AccommodationType type) {
         super(name, rating, description, coordinates);
+        this.type = type;
     }
 
     public Accommodation() {
     }
 
+    public AccommodationType getType() {
+        return type;
+    }
+
+    public void setType(AccommodationType type) {
+        this.type = type;
+    }
 }

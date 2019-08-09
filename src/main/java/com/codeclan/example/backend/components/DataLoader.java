@@ -1,6 +1,7 @@
 package com.codeclan.example.backend.components;
 
 import com.codeclan.example.backend.models.locations.Accommodation;
+import com.codeclan.example.backend.models.locations.AccommodationType;
 import com.codeclan.example.backend.repositories.AccommodationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -23,7 +24,7 @@ public class DataLoader implements ApplicationRunner {
         ArrayList<Double> coords1 = new ArrayList<>();
         coords1.add(-10.00);
         coords1.add(10.00);
-        Accommodation accom1 = new Accommodation("BillyBob's Hotel", 5, "Nice!!", coords1);
+        Accommodation accom1 = new Accommodation("BillyBob's Hotel", 5, "Nice!!", coords1, AccommodationType.HOTEL);
 
         accommodationRepository.save(accom1);
 
