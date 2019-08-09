@@ -1,14 +1,14 @@
 package com.codeclan.example.backend.components;
 
+import com.codeclan.example.backend.models.Route;
+import com.codeclan.example.backend.models.User;
 import com.codeclan.example.backend.models.locations.Accommodation;
 import com.codeclan.example.backend.models.locations.AccommodationType;
 import com.codeclan.example.backend.models.locations.Service;
 import com.codeclan.example.backend.models.locations.ServiceType;
-import com.codeclan.example.backend.repositories.AccommodationRepository;
-import com.codeclan.example.backend.repositories.ServiceRepository;
+import com.codeclan.example.backend.repositories.*;
 import com.codeclan.example.backend.models.locations.PointOfInterest;
 import com.codeclan.example.backend.models.locations.PointOfInterestType;
-import com.codeclan.example.backend.repositories.PointOfInterestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -27,6 +27,12 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     PointOfInterestRepository pointOfInterestRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    RouteRepository routeRepository;
 
     public DataLoader() {
     }
@@ -50,6 +56,13 @@ public class DataLoader implements ApplicationRunner {
         coords2.add(20.00);
         PointOfInterest poi1 = new PointOfInterest("Milngavie", 3, "Small town with all the shops you need", coords2, PointOfInterestType.TOWN);
         pointOfInterestRepository.save(poi1);
+
+        User user1 = new User("Dave Smith");
+        userRepository.save(user1);
+
+
+        Route route1 = new Route("route1", user1, coords1, coords2);
+        routeRepository.save(route1);
 
     }
 
