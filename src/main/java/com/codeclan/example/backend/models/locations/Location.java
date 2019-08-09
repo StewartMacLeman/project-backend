@@ -4,15 +4,13 @@ package com.codeclan.example.backend.models.locations;
 import javax.persistence.*;
 import java.util.ArrayList;
 
-@Entity
-@Table(name="locations")
 
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Location {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
     @Column(name="name")
