@@ -64,6 +64,10 @@ public class DataLoader implements ApplicationRunner {
         Route route1 = new Route("route1", user1, coords1, coords2);
         routeRepository.save(route1);
 
+        user1.addLocation(accom1);
+        userRepository.save(user1);
+        accommodationRepository.save(accom1);
+
     }
 
 

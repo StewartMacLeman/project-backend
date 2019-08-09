@@ -1,6 +1,7 @@
 package com.codeclan.example.backend.models;
 
 import com.codeclan.example.backend.models.locations.Location;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,8 +20,14 @@ public class User {
     @Column(name="name")
     private String name;
 
-    @Column(name="locations")
-    private ArrayList<Location> favourites;
+   @ManyToMany
+   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+   @JoinTable(
+           name="user_locations",
+           joinColumns = {@JoinColumn(name="user_id", nullable = false, updatable = false)},
+           inverseJoinColumns = {@JoinColumn(name="location_id", nullable = false, updatable = false)}
+   )
+    private List<Location> favourites;
 
     @OneToMany(mappedBy = "user")
     private List<Route> routes;
@@ -50,7 +57,7 @@ public class User {
         this.name = name;
     }
 
-    public ArrayList<Location> getFavourites() {
+    public List<Location> getFavourites() {
         return favourites;
     }
 
@@ -64,5 +71,9 @@ public class User {
 
     public void setRoutes(ArrayList<Route> routes) {
         this.routes = routes;
+    }
+
+    public void addLocation(Location location) {
+        this.favourites.add(location);
     }
 }

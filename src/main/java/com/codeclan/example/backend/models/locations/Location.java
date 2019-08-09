@@ -1,8 +1,14 @@
 package com.codeclan.example.backend.models.locations;
 
 
+import com.codeclan.example.backend.models.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -25,11 +31,21 @@ public abstract class Location {
     @Column(name="coordinates")
     private ArrayList<Double> coordinates;
 
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name="user_locations",
+            joinColumns = {@JoinColumn(name="location_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name="user_id", nullable = false, updatable = false)}
+    )
+    private List<User> users;
+
     public Location(String name, int rating, String description, ArrayList<Double> coordinates) {
         this.name = name;
         this.rating = rating;
         this.description = description;
         this.coordinates = coordinates;
+        this.users = new ArrayList<>();
     }
 
     public Location() {
@@ -73,5 +89,13 @@ public abstract class Location {
 
     public void setCoordinates(ArrayList<Double> coordinates) {
         this.coordinates = coordinates;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
