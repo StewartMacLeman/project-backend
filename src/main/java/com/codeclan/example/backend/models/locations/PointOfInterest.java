@@ -8,10 +8,21 @@ import java.util.ArrayList;
 @Table(name="points_of_interest")
 public class PointOfInterest extends Location {
 
-    public PointOfInterest(String name, int rating, String description, ArrayList<Double> coordinates) {
+    private PointOfInterestType type;
+
+    public PointOfInterest(String name, int rating, String description, ArrayList<Double> coordinates, PointOfInterestType type) {
         super(name, rating, description, coordinates);
+        this.type = type;
     }
 
     public PointOfInterest() {
+    }
+
+    public PointOfInterestType getType() {
+        return type;
+    }
+
+    public void setType(PointOfInterestType type) {
+        this.type = type;
     }
 }
