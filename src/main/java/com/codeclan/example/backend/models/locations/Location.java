@@ -2,6 +2,7 @@ package com.codeclan.example.backend.models.locations;
 
 
 import com.codeclan.example.backend.models.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
@@ -31,6 +32,7 @@ public abstract class Location {
     @Column(name="coordinates")
     private ArrayList<Double> coordinates;
 
+    @JsonIgnore
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(

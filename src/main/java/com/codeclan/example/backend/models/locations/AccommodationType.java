@@ -4,7 +4,7 @@ public enum AccommodationType {
 
     HOTEL,
     BANDB,
-    CAMPSITES,
+    CAMPSITE,
     HOSTEL
 
 }

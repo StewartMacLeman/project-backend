@@ -7,5 +7,6 @@ public enum PointOfInterestType {
     TOWN,
     NATURE_RESERVE,
     HISTORIC_SIGHT,
+    VILLAGE
 
 }
