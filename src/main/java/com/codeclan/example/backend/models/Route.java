@@ -1,6 +1,7 @@
 package com.codeclan.example.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,8 +18,8 @@ public class Route {
     @Column(name="name")
     private String name;
 
-    @JsonIgnoreProperties("routes")
     @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinColumn(name="user_id", nullable = false)
     private User user;
 

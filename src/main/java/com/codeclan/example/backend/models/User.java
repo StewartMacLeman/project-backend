@@ -1,6 +1,7 @@
 package com.codeclan.example.backend.models;
 
 import com.codeclan.example.backend.models.locations.Location;
+import com.codeclan.example.backend.projections.UserEmbed;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -23,7 +24,6 @@ public class User {
    @ManyToMany
    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
    @JoinTable(
-           name="user_locations",
            joinColumns = {@JoinColumn(name="user_id", nullable = false, updatable = false)},
            inverseJoinColumns = {@JoinColumn(name="location_id", nullable = false, updatable = false)}
    )

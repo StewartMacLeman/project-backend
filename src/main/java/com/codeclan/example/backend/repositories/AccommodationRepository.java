@@ -11,6 +11,6 @@ import java.util.List;
 public interface AccommodationRepository extends JpaRepository<Accommodation, Long> {
 
     List<Accommodation> findAccommodationByRating(int rating);
-    List<Accommodation> findAccommodationByTypeIgnoreCase(String type);
+    List<Accommodation> findAccommodationByType(AccommodationType type);
 
 }

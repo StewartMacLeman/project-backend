@@ -29,7 +29,7 @@ public class AccommodationController {
     }
 
     @GetMapping(value = "/type/{type}")
-    public List<Accommodation> getAccommodationByType(@PathVariable String type) {
-        return accommodationRepository.findAccommodationByTypeIgnoreCase(type);
+    public List<Accommodation> getAccommodationByType(@PathVariable AccommodationType type) {
+        return accommodationRepository.findAccommodationByType(type);
     }
 }
