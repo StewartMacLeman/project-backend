@@ -1,20 +1,17 @@
 package com.codeclan.example.backend.models.locations;
 
-
 import com.codeclan.example.backend.models.User;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Location {
+public class Location {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -32,7 +29,7 @@ public abstract class Location {
     @Column(name="coordinates")
     private ArrayList<Double> coordinates;
 
-    @JsonIgnore
+    @JsonIgnoreProperties
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(

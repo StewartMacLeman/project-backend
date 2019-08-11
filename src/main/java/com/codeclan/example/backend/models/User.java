@@ -2,6 +2,7 @@ package com.codeclan.example.backend.models;
 
 import com.codeclan.example.backend.models.locations.Location;
 import com.codeclan.example.backend.projections.UserEmbed;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class User {
     @Column(name="name")
     private String name;
 
+    @JsonIgnoreProperties
    @ManyToMany
    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
    @JoinTable(

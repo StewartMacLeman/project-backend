@@ -1,6 +1,5 @@
 package com.codeclan.example.backend.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
