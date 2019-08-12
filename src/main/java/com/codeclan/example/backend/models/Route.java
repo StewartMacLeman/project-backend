@@ -22,17 +22,20 @@ public class Route {
     @JoinColumn(name="user_id", nullable = false)
     private User user;
 
-    @Column(name="start")
-    private ArrayList<Double> start;
+    @Column(name="geojson_data")
+    private ArrayList<ArrayList<Double>> geoJsonData;
 
-    @Column(name="end")
-    private ArrayList<Double> end;
+    @Column(name="length")
+    private Double length;
 
-    public Route(String name, User user, ArrayList<Double> start, ArrayList<Double> end) {
+    private boolean completed;
+
+    public Route(String name, User user, ArrayList<ArrayList<Double>> geoJsonData, Double length) {
         this.name = name;
         this.user = user;
-        this.start = start;
-        this.end = end;
+        this.geoJsonData = geoJsonData;
+        this.length = length;
+        this.completed = false;
     }
 
     public Route() {
@@ -62,19 +65,27 @@ public class Route {
         this.user = user;
     }
 
-    public ArrayList<Double> getStart() {
-        return start;
+    public ArrayList<ArrayList<Double>> getGeoJsonData() {
+        return geoJsonData;
     }
 
-    public void setStart(ArrayList<Double> start) {
-        this.start = start;
+    public void setGeoJsonData(ArrayList<ArrayList<Double>> geoJsonData) {
+        this.geoJsonData = geoJsonData;
     }
 
-    public ArrayList<Double> getEnd() {
-        return end;
+    public void setLength(Double length) {
+        this.length = length;
     }
 
-    public void setEnd(ArrayList<Double> end) {
-        this.end = end;
+    public Double getLength() {
+        return length;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }
