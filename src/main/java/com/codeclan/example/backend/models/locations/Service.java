@@ -11,8 +11,8 @@ public class Service extends Location {
 
     private ServiceType type;
 
-    public Service(String name, int rating, String description, ArrayList<Double> coordinates, ServiceType type) {
-        super(name, rating, description, coordinates);
+    public Service(String name, int rating, String description, ArrayList<Double> coordinates, String pictureURL, ServiceType type) {
+        super(name, rating, description, coordinates, pictureURL);
         this.type = type;
     }
 

@@ -12,4 +12,5 @@ public interface UserEmbed {
     String getName();
     List<Location> getFavourites();
     List<Route> getRoutes();
+    double getDistanceWalked();
 }

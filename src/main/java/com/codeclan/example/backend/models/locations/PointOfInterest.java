@@ -10,8 +10,8 @@ public class PointOfInterest extends Location {
 
     private PointOfInterestType type;
 
-    public PointOfInterest(String name, int rating, String description, ArrayList<Double> coordinates, PointOfInterestType type) {
-        super(name, rating, description, coordinates);
+    public PointOfInterest(String name, int rating, String description, ArrayList<Double> coordinates, String pictureURL, PointOfInterestType type) {
+        super(name, rating, description, coordinates, pictureURL);
         this.type = type;
     }
 

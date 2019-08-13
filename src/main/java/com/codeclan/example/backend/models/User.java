@@ -78,4 +78,14 @@ public class User {
     public void addLocation(Location location) {
         this.favourites.add(location);
     }
+
+    public double getDistanceWalked() {
+        double length = 0;
+        for(Route route: this.routes) {
+            if (route.isCompleted()) {
+                length += route.getLength();
+            }
+        }
+        return length;
+    }
 }

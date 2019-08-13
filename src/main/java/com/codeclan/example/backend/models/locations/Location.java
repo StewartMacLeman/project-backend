@@ -29,6 +29,9 @@ public class Location {
     @Column(name="coordinates")
     private ArrayList<Double> coordinates;
 
+    @Column(name="picture_url")
+    private String pictureURL;
+
     @JsonIgnoreProperties
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -39,12 +42,13 @@ public class Location {
     )
     private List<User> users;
 
-    public Location(String name, int rating, String description, ArrayList<Double> coordinates) {
+    public Location(String name, int rating, String description, ArrayList<Double> coordinates, String pictureURL) {
         this.name = name;
         this.rating = rating;
         this.description = description;
         this.coordinates = coordinates;
         this.users = new ArrayList<>();
+        this.pictureURL = pictureURL;
     }
 
     public Location() {
@@ -96,5 +100,13 @@ public class Location {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public String getPictureURL() {
+        return pictureURL;
+    }
+
+    public void setPictureURL(String pictureURL) {
+        this.pictureURL = pictureURL;
     }
 }
