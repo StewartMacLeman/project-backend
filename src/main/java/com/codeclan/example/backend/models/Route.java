@@ -65,12 +65,20 @@ public class Route {
         this.user = user;
     }
 
-    public ArrayList<ArrayList<Double>> getGeojsonData() {
+    public ArrayList<ArrayList<Double>> getGeoJsonData() {
         return geoJsonData;
+    }
+
+    public void setGeoJsonData(ArrayList<ArrayList<Double>> geoJsonData) {
+        this.geoJsonData = geoJsonData;
     }
 
     public Double getLength() {
         return length;
+    }
+
+    public void setLength(Double length) {
+        this.length = length;
     }
 
     public boolean isCompleted() {
